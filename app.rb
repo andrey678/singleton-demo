@@ -1,35 +1,7 @@
-class Logger
-  
-  def initialize
-    @f = File.open 'log.txt','a'
-  end
+require './logger'
 
-@@x = nil
+Logger.instance.log_something 'bla bla !!!'
 
-  def self.instance
-
-         if @@x == nil
-            @@x = Logger.new
-          end
-
-  return @@x  
-
-  end
-
-  #CLASS METHOD
-  def self.say_something
-    puts "haha"
-  end
-
-#Instance method
-  def log_something wat
-  @f.puts wat
-  end
-end
-
-Logger.say_something
-Logger.instance.log_something 'blabla'
-Logger.instance.log_something 'blabla2'
-
-logger = Logger.new
-logger.log_something 'hey!'
+#Не заавускается, потому что метод new приватный( можно вызвать только внутри класса) 
+#logger = Logger.new
+#logger.log_something 'hey!'
